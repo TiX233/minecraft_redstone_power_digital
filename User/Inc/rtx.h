@@ -8,6 +8,7 @@ md 和 keil 的 rtx 重名了，不管了
  * @version 0.2
  * @date 2025-08-15 (0.1)
  *       2025-08-18 (0.2, 修复在 remove 或 unsubscribe 时没有成员的话会访问到空指针的 bug)
+ *       2025-09-02 (0.3, 修复 alarm 会多延时一个 tick 的 bug，移除记录闹钟超时时间的功能)
  * 
  * @copyright Copyright (c) 2025
  * 
@@ -51,7 +52,7 @@ struct rtx_Timer_stu {
 };
 
 struct rtx_Alarm_stu {
-    uint8_t flag; // 响铃标志位，到时间后未移除该闹钟的话，flag 会在每个 tick 加一
+    uint8_t flag; // 响铃标志位
     TickType_t tick_count_down; // 闹钟倒计时，变为零时 flag ++，以通知前台调用回调函数
 
     void (*callback_alarm)(void *param); // 闹钟到时间后会调用相应回调函数

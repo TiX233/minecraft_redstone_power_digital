@@ -4,6 +4,7 @@
 #include "main.h"
 #include "rtx.h"
 #include "myTasks.h"
+#include "ch224.h"
 
 typedef struct{
     const char *cmdName;
@@ -17,6 +18,7 @@ void cmd_cb_hello(uint8_t argc, char *argv[]);
 void cmd_cb_print(uint8_t argc, char *argv[]);
 void cmd_cb_alarm(uint8_t argc, char *argv[]);
 void cmd_cb_param(uint8_t argc, char *argv[]);
+void cmd_cb_protocol(uint8_t argc, char *argv[]);
 
 cmdItem cmdList[] = {
     {
@@ -51,6 +53,12 @@ cmdItem cmdList[] = {
         .cmdName = "alarm",
         .brief = "set an alarm for test",
         .pCmdCallback = cmd_cb_alarm,
+    },
+
+    {
+        .cmdName = "protocol",
+        .brief = "get ch224 charge protocol now",
+        .pCmdCallback = cmd_cb_protocol,
     },
 
 
@@ -331,6 +339,30 @@ Useage_param:
     LOG_STR(PRINT_LOG"\t-r: read, -w: write, -l: list\n");
 }
 
+
+const char *protocol_list[] = {
+    
+    [CH224_PROTOCOL_BC] = "BC",
+    [CH224_PROTOCOL_QC2] = "QC2",
+    [CH224_PROTOCOL_QC3] = "QC3",
+    [CH224_PROTOCOL_PD] = "PD",
+    [CH224_PROTOCOL_EPR] = "EPR",
+
+    [CH224_PROTOCOL_MAX_NUM] = "NONE",
+};
+
+// 获取当前快充协议的命令
+void cmd_cb_protocol(uint8_t argc, char *argv[]){
+    if(my_ch224.i2c_addr == 0){
+        LOG_STR(PRINT_WARNNING"CH224k do not support i2c!\n");
+        
+        return ;
+    }
+
+    ch224_protocol_e protocol = ch224_get_protocol(&my_ch224);
+
+    LOG_FMT(PRINT_LOG"CH224 charge protocol: %s\n", protocol_list[protocol]);
+}
 
 // 处理输入，执行命令
 void cmd_process(char *cmd){

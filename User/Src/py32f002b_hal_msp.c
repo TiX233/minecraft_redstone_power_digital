@@ -48,4 +48,26 @@ void HAL_MspInit(void)
 //   __HAL_RCC_PWR_CLK_ENABLE();
 }
 
+/**
+  * @brief Initialize MSP for I2C.
+  */
+void HAL_I2C_MspInit(I2C_HandleTypeDef *hi2c)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    __HAL_RCC_I2C_CLK_ENABLE();                                 /* I2C clock enable */
+    __HAL_RCC_GPIOB_CLK_ENABLE();                               /* GPIOB clock enable */
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_4;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;                     /* open drain */
+    GPIO_InitStruct.Pull = GPIO_PULLUP;                         /* pull up */
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;          
+    GPIO_InitStruct.Alternate = GPIO_AF6_I2C1;                   /* Reuse as I2C */
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);                     /* GPIO initialization */
+    
+    /*Reset I2C*/
+    __HAL_RCC_I2C_FORCE_RESET();
+    __HAL_RCC_I2C_RELEASE_RESET();
+}
+
 /************************ (C) COPYRIGHT Puya *****END OF FILE******************/

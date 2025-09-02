@@ -56,7 +56,9 @@ extern "C" {
 
 /* Exported variables prototypes ---------------------------------------------*/
 
-extern struct scanLED_stu myScanLED;
+extern I2C_HandleTypeDef               peripheral_handler_I2C;
+
+extern struct ch224_stu my_ch224;
 
 /* Exported functions prototypes ---------------------------------------------*/
 void APP_ErrorHandler(void);

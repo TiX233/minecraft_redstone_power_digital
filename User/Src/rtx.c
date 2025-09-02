@@ -293,9 +293,8 @@ void rtx_Sys_scheduler(void){
         pAlarm = rtx_sys_alarm_list.next;
         while(pAlarm != NULL){
             if(pAlarm->flag){
-                uint8_t alarm_timeout_ticks = pAlarm->flag; // 记录闹钟超时 tick 数
                 rtx_Alarm_remove(pAlarm); // 必须先移除闹钟再调用回调，不然无法在回调中创建调用自己的闹钟
-                pAlarm->callback_alarm(&alarm_timeout_ticks); // 可以知道回调在超时多久后才被调用，不过感觉没什么用，动画的话还是获取系统 realtick 去计算进度更好点
+                pAlarm->callback_alarm(pAlarm);
             }
 
             pAlarm = pAlarm->next;

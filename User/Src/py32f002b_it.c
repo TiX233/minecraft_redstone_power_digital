@@ -92,7 +92,7 @@ void SysTick_Handler(void)
 void EXTI4_15_IRQHandler(void)
 {
     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_6);
-    LOG_STR("PA6 IRQ\n");
+    // LOG_STR("PA6 IRQ\n");
 }
 
 /******************************************************************************/

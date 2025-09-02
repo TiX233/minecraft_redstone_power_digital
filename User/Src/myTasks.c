@@ -1,7 +1,6 @@
 #include "myTasks.h"
 #include "rtx.h"
 #include "cmdProcess.h"
-#include "scan_LED.h"
 
 void task_func_heart_beat(void *param);
 void task_func_cmd(void *param);

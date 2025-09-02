@@ -615,14 +615,9 @@
           <GroupName>Devices</GroupName>
           <Files>
             <File>
-              <FileName>segment_LED.c</FileName>
+              <FileName>ch224.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Devices\Src\segment_LED.c</FilePath>
-            </File>
-            <File>
-              <FileName>scan_LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Devices\Src\scan_LED.c</FilePath>
+              <FilePath>..\Devices\Src\ch224.c</FilePath>
             </File>
           </Files>
         </Group>
