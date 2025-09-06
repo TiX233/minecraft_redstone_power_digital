@@ -200,7 +200,7 @@ void my_GPIO_init(void){
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 0);
-
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, 1);
 }
 
 void my_I2C_init(void){

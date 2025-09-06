@@ -67,8 +67,8 @@ struct mt_Task_stu task_redstone_clock = {
     },
 
     .timer = {
-        .tick_counts = 50,
-        .tick_reload = 50,
+        .tick_counts = 100,
+        .tick_reload = 100,
 
         .topic = &(task_redstone_clock.topic),
         .next = NULL,

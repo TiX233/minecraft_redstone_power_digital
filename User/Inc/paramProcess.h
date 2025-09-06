@@ -1,7 +1,7 @@
 /**
  * @file paramProcess.h
  * @author realTiX
- * @brief 用于读写一些预设的系统参数，由 cmdProcess.c 中的 param 命令调用
+ * @brief 用于读写一些预设的系统参数，一般由 cmdProcess.c 中的 param 命令调用
  * @version 0.1
  * @date 2025-09-1
  * 
