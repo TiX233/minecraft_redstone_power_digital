@@ -7,7 +7,7 @@
 为便于管理，代码与电路将分别在以下平台开源：  
 
 * 代码：gitee/github
-* 电路：
+* 电路：立创开源硬件平台：[我的世界红石_数字方案](https://oshwhub.com/realtix/minecraft_redstone_digital)
 
 ## 一、项目简介
 
