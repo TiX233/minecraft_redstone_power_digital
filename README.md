@@ -20,7 +20,7 @@
 
 所有与 py32 相关的软件工具以及使用手册均可从普冉官网或芯岭技术官网下载到
 
-红石通信协议可以在 [红石线代码仓库](https://gitee.com/TiX233/minecraft_redstone_line_digital) 的 readme 文件中看到详细描述，此处不赘述
+红石通信协议可以在 [红石线代码仓库](https://gitee.com/TiX233/minecraft_redstone_wire_digital) 的 readme 文件中看到详细描述，此处不赘述
 
 ## 二、烧录
 
